@@ -52,7 +52,7 @@ onUnmounted(() => {
                     </div>
 
                     <div v-else v-for="(desc, cmd) in commands" :key="cmd" class="command-row">
-                        <span class="cmd">{{ cmd === '' ? 'home' : cmd }}</span>
+                        <RouterLink :to="cmd" class="cmd">{{ cmd === '' ? 'home' : cmd }}</RouterLink>
                         <span class="desc">{{ desc }}</span>
                     </div>
                 </div>

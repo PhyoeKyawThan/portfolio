@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist -m 'update: title and icon'",
+    "deploy": "gh-pages -d dist -m 'update: help for ava commands'",
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
