@@ -1,28 +1,32 @@
 {
-  "name": "doma_s_portfolio",
-  "version": "0.0.0",
+  "name": "portfolio",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist -m 'update: help for ava commands'",
-    "format": "prettier --write --experimental-cli src/"
+    "dev": "vite --host",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.3"
+    "@tailwindcss/vite": "^4.3.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.2",
-    "gh-pages": "^6.3.0",
-    "prettier": "3.6.2",
-    "vite": "^7.2.4",
-    "vite-plugin-vue-devtools": "^8.0.5"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.5.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "globals": "^17.6.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.61.0",
+    "vite": "^8.1.0"
   }
 }
