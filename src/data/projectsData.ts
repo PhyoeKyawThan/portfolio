@@ -1,3 +1,5 @@
+import smartBeachImg from '../assets/projects/smartBeachImg.png';
+
 export interface CodeRepository {
     label: string;
     url: string;
@@ -73,7 +75,7 @@ export const projectsData: Project[] = [
     {
         "id": "smart-beach",
         "title": "Smart Beach",
-        "image": "/src/assets/projects/smart-beach.png",
+        "image": smartBeachImg,
         "status": "completed",
         "description": "A comprehensive digital travel and hospitality platform engineered for coastal tourism. Features a cross-platform mobile application, seamless real-time booking channels via Firebase, and a high-performance backend supporting localized venue exploration. Good news is that this project is now live and accessible to the public in Play Store, providing users with an immersive experience in discovering and booking beach destinations.",
         "tags": [
