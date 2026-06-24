@@ -1,40 +1,73 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { type PageType, PAGES } from '../types/navigation';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<PageType>('home');
+  const isManualScrolling = useRef(false);
+  const scrollTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const observers = PAGES.map((page) => {
-      const element = document.getElementById(page);
-      if (!element) return null;
+    const handleScrollCalculation = () => {
+      if (isManualScrolling.current) return;
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
+      const scrollPosition = window.scrollY + 120;
+
+      for (let i = PAGES.length - 1; i >= 0; i--) {
+        const page = PAGES[i];
+        const element = document.getElementById(page);
+        
+        if (element) {
+          const topOffset = element.offsetTop;
+          
+          if (scrollPosition >= topOffset) {
             setActiveSection(page);
+            break;
           }
-        },
-        { rootMargin: '-15% 0px -75% 0px' }
-      );
+        }
+      }
+    };
 
-      observer.observe(element);
-      return { observer, element };
-    });
+    window.addEventListener('scroll', handleScrollCalculation, { passive: true });
+    handleScrollCalculation();
 
     return () => {
-      observers.forEach((obs) => {
-        if (obs) obs.observer.unobserve(obs.element);
-      });
+      window.removeEventListener('scroll', handleScrollCalculation);
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, []);
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: PageType) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
+    
     if (element) {
+      isManualScrolling.current = true;
+      setActiveSection(targetId);
+
       element.scrollIntoView({ behavior: 'smooth' });
+
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
+
+      const checkScrollEnd = () => {
+        if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
+        
+        scrollTimeoutRef.current = window.setTimeout(() => {
+          isManualScrolling.current = false;
+          window.removeEventListener('scroll', checkScrollEnd);
+        }, 100);
+      };
+
+      window.addEventListener('scroll', checkScrollEnd, { passive: true });
+      
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        isManualScrolling.current = false;
+        window.removeEventListener('scroll', checkScrollEnd);
+      }, 1200);
     }
     setIsMenuOpen(false);
   };
@@ -51,10 +84,12 @@ export default function Navbar() {
               <a
                 href={`#${page}`}
                 onClick={(e) => handleScroll(e, page)}
-                className={`px-4 py-2 text-sm font-semibold tracking-wide transition-all duration-200 rounded-md capitalize block ${activeSection === page
+                id={`${page}-btn`}
+                className={`px-4 py-2 text-sm font-semibold tracking-wide transition-all duration-200 rounded-md capitalize block ${
+                  activeSection === page
                     ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                  }`}
+                }`}
               >
                 {page}
               </a>
@@ -86,10 +121,12 @@ export default function Navbar() {
                 <a
                   href={`#${page}`}
                   onClick={(e) => handleScroll(e, page)}
-                  className={`w-full text-left px-4 py-3 text-base font-semibold tracking-wide transition-all rounded-md capitalize block ${activeSection === page
+                  id={`${page}-btn`}
+                  className={`w-full text-left px-4 py-3 text-base font-semibold tracking-wide transition-all rounded-md capitalize block ${
+                    activeSection === page
                       ? 'bg-emerald-500/10 text-emerald-400 border-l-4 border-emerald-500'
                       : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                    }`}
+                  }`}
                 >
                   {page}
                 </a>

@@ -22,7 +22,7 @@ function App() {
           <Projects />
         </section>
         <SectionDivider />
-        <section id="contact" className="text-slate-400 min-h-[40vh] scroll-mt-90">
+        <section id="contact" className="text-slate-400 min-h-[40vh] scroll-mt-90 pb-24">
           <Contact />
         </section>
       </main>

@@ -29,10 +29,20 @@ export default function Home() {
         </p>
         
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1">
-          <button className="px-5 py-2.5 text-sm font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-md hover:opacity-90 transition-opacity shadow-lg shadow-emerald-500/20">
+          <button onClick={() => {
+            const projects_btn = document.getElementById('projects-btn');
+            if(projects_btn){
+              projects_btn.click();
+            }
+          }} className="px-5 py-2.5 text-sm font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-md hover:opacity-90 transition-opacity shadow-lg shadow-emerald-500/20">
             View My Work
           </button>
-          <button className="px-5 py-2.5 text-sm font-medium text-slate-300 border border-slate-700 rounded-md hover:text-white hover:bg-slate-900 transition-colors">
+          <button onClick={() => {
+            const contact_btn = document.getElementById('contact-btn');
+            if(contact_btn){
+              contact_btn.click();
+            }
+          }} className="px-5 py-2.5 text-sm font-medium text-slate-300 border border-slate-700 rounded-md hover:text-white hover:bg-slate-900 transition-colors">
             Contact Me
           </button>
         </div>
