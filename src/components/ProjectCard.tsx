@@ -1,4 +1,4 @@
-import type { Project } from "../sections/Projects";
+import { type Project } from "../data/projectsData";
 
 interface ProjectCardProps {
     project: Project;
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, index, onReadDetails }: ProjectCa
 
                     <div className="space-y-4">
                         <div className="flex flex-wrap gap-1.5">
-                            {project.tags.map((tag) => (
+                            {project.tags.map((tag: string) => (
                                 <span
                                     key={tag}
                                     className="px-2 py-0.5 text-xs font-medium rounded bg-slate-800/60 text-slate-300 border border-slate-700/40"
