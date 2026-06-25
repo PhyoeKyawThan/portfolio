@@ -26,6 +26,71 @@ export interface Project {
 
 export const projectsData: Project[] = [
     {
+        "id": "smart-beach",
+        "title": "Smart Beach",
+        "image": smartBeachImg,
+        "status": "completed",
+        "description": "A comprehensive digital travel and hospitality platform engineered for coastal tourism. Features a cross-platform mobile application, seamless real-time booking channels via Firebase, and a high-performance backend supporting localized venue exploration. Good news is that this project is now live and accessible to the public in Play Store, providing users with an immersive experience in discovering and booking beach destinations.",
+        "tags": [
+            "ExpressJS",
+            "NodeJS",
+            "Firebase",
+            "React Native",
+            "Tailwind CSS"
+        ],
+        "liveUrl": "https://smartbeachmm.com/",
+        "githubUrl": null,
+        "collaborators": [
+            {
+                "name": "TommyX",
+                "role": "Founder",
+                "githubUrl": "https://github.com/tpmcoffical27-dot/"
+            }
+        ]
+    },
+    {
+        "id": "smart-entrance",
+        "title": "UCSH Smart Entrance System",
+        "image": "",
+        "status": "completed",
+        "description": "An IoT-driven entrance monitoring system deployed for campus management. Integrates ESP32 hardware configurations with real-time QR token validation and automated serial data streaming to peripheral LCD interfaces.",
+        "tags": [
+            "ESP32",
+            "Arduino",
+            "Serial Comms",
+            "Hardware Integration"
+        ],
+        "liveUrl": null,
+        "githubUrl": "https://github.com/PhyoeKyawThan/Smart-Campus-Management-System.git",
+        "collaborators": []
+    },
+    {
+        "id": "tayar",
+        "title": "Tayar Player",
+        "image": "",
+        "status": "in-progress",
+        "description": "An offline-first digital Dhamma audio player ecosystem designed for accessible spiritual media distribution. Features an automated data scraping and generation pipeline that compiles structured source audio, paired with a native self-updating Android module capable of independently synchronizing and downloading content payloads directly to mobile storage.",
+        "tags": [
+            "Python",
+            "Android Integration",
+            "Automation",
+            "Media Streaming",
+            "Data Scraping"
+        ],
+        "liveUrl": null,
+        "githubUrls": [
+            {
+                "label": "Dhamma Player Engine",
+                "url": "https://github.com/PhyoeKyawThan/tayar.git"
+            },
+            {
+                "label": "Content Generator Script",
+                "url": "https://github.com/PhyoeKyawThan/tayar_generator.git"
+            }
+        ],
+        "collaborators": []
+    },
+    {
         "id": "fire-backend",
         "title": "Fire Backend Ecosystem",
         "image": "",
@@ -56,43 +121,4 @@ export const projectsData: Project[] = [
             }
         ]
     },
-    {
-        "id": "smart-entrance",
-        "title": "UCSH Smart Entrance System",
-        "image": "",
-        "status": "completed",
-        "description": "An IoT-driven entrance monitoring system deployed for campus management. Integrates ESP32 hardware configurations with real-time QR token validation and automated serial data streaming to peripheral LCD interfaces.",
-        "tags": [
-            "ESP32",
-            "Arduino",
-            "Serial Comms",
-            "Hardware Integration"
-        ],
-        "liveUrl": null,
-        "githubUrl": "https://github.com/PhyoeKyawThan/Smart-Campus-Management-System.git",
-        "collaborators": []
-    },
-    {
-        "id": "smart-beach",
-        "title": "Smart Beach",
-        "image": smartBeachImg,
-        "status": "completed",
-        "description": "A comprehensive digital travel and hospitality platform engineered for coastal tourism. Features a cross-platform mobile application, seamless real-time booking channels via Firebase, and a high-performance backend supporting localized venue exploration. Good news is that this project is now live and accessible to the public in Play Store, providing users with an immersive experience in discovering and booking beach destinations.",
-        "tags": [
-            "ExpressJS",
-            "NodeJS",
-            "Firebase",
-            "React Native",
-            "Tailwind CSS"
-        ],
-        "liveUrl": "https://smartbeachmm.com/",
-        "githubUrl": null,
-        "collaborators": [
-            {
-                "name": "TommyX",
-                "role": "Founder",
-                "githubUrl": "https://github.com/tpmcoffical27-dot/"
-            }
-        ]
-    }
 ];
