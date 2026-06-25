@@ -67,7 +67,7 @@ export const techStacksData: TechStack[] = [
     },
     {
         name: "ESP32",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Espressif_Logo.svg/512px-Espressif_Logo.svg.png",
+        logo: "https://www.espressif.com/sites/all/themes/espressif/favicon.ico",
         description: "A Wi-Fi and Bluetooth microcontroller."
     },
     {

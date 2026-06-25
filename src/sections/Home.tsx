@@ -13,20 +13,24 @@ export default function Home() {
           <p className="text-xs font-semibold tracking-wider uppercase text-emerald-400">
             Available for Opportunities
           </p>
+          
           <div className="md:hidden my-6">
             <div className="relative w-48 h-48 flex items-center justify-center">
-              <Profile />
-              <div className="absolute inset-[-24px] rounded-full animate-orbit pointer-events-none">
+              <div className="z-10 relative">
+                <Profile />
+              </div>
+              <div className="absolute inset-0 rounded-full animate-orbit pointer-events-none z-20">
                 {floatingTech.map((tech, index) => {
                   const angle = (index * 360) / floatingTech.length;
                   return (
                     <div
                       key={`mobile-${tech.name}`}
-                      className="absolute w-8 h-8 p-1.5 rounded-lg bg-slate-950/90 border border-slate-800 backdrop-blur-sm shadow-md"
+                      className="absolute w-8 h-8 p-1.5 rounded-lg bg-slate-950/90 border border-slate-800 backdrop-blur-sm shadow-md flex items-center justify-center"
                       style={{
                         top: "50%",
                         left: "50%",
-                        transform: `rotate(${angle}deg) translate(96px) rotate(-${angle}deg)`,
+                        margin: "-16px",
+                        transform: `rotate(${angle}deg) translate(110px) rotate(-${angle}deg)`,
                       }}
                     >
                       <img 
@@ -65,6 +69,7 @@ export default function Home() {
           </button>
         </div>
       </div>
+
       <div className="hidden md:flex w-full md:w-auto items-center justify-center pr-8 lg:pr-12">
         <div className="relative md:w-64 md:h-64 lg:w-72 lg:h-72 flex items-center justify-center">
           <div className="z-10 relative">
